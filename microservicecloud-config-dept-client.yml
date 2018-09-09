@@ -1,0 +1,82 @@
+spring:
+  profiles:
+    active:
+      - dev
+
+---
+erver:
+  port: 8001
+  
+#mybatis 配置
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.jxedu.springcloud.bean
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: dev
+  application:
+    name: microservice-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #當前數據源操作類型
+    driver-class-name: org.gjt.mm.mysql.Driver    #mysql驅動名
+    url: jdbc:mysql:///cloud01
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+       defaultZone: http://www.eureka7001.com:7001/eureka/
+    instance-id: microservicecloud-config-provider-dept-8001
+    prefer-ip-address: true
+
+info:
+ app.name: microservicecloud
+ company.name: www.jxedu.org
+
+---
+erver:
+  port: 8001
+  
+#mybatis 配置
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.jxedu.springcloud.bean
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: test
+  application:
+    name: microservice-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #當前數據源操作類型
+    driver-class-name: org.gjt.mm.mysql.Driver    #mysql驅動名
+    url: jdbc:mysql:///cloud02
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+       defaultZone: http://www.eureka7001.com:7001/eureka/
+    instance-id: microservicecloud-config-provider-dept-8001
+    prefer-ip-address: true
+
+info:
+ app.name: microservicecloud
+ company.name: www.jxedu.org
