@@ -4,7 +4,7 @@ spring:
       - dev
 
 ---
-erver:
+server:
   port: 8001
   
 #mybatis 配置
@@ -43,7 +43,7 @@ info:
  company.name: www.jxedu.org
 
 ---
-erver:
+server:
   port: 8001
   
 #mybatis 配置
